@@ -1,11 +1,11 @@
-import { MailOutlined, AppstoreOutlined } from '@ant-design/icons-vue';
+import { UsergroupAddOutlined, AppstoreOutlined } from '@ant-design/icons-vue';
 import { h } from 'vue';
 
 export const navbarItems = [
   {
     key: '/users',
-    icon: () => h(MailOutlined),
-    label: h('a', { href: '/users' }, 'Cargos'),
+    icon: () => h(UsergroupAddOutlined),
+    label: h('a', { href: '/users' }, 'Usuários'),
     title: 'Usuários',
     path: '/users'
   },

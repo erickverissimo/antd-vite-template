@@ -18,14 +18,19 @@
         <a-button type="text" shape="circle"><BellOutlined /></a-button>
       </a-space>
 
-      <a-menu mode="horizontal" title="Meu Usuário" style="border-bottom: none">
-        <a-sub-menu key="sub1">
+      <a-menu
+        v-model:selectedKeys="currentTab"
+        mode="horizontal"
+        title="Meu Usuário"
+        style="border-bottom: none"
+      >
+        <a-sub-menu>
           <template #title>
             <span>
               <span>{{ myUser.name }}</span>
             </span>
           </template>
-          <a-menu-item key="details">
+          <a-menu-item key="details" @click="redirect('Details')">
             <UserOutlined />
             <span>Detalhes</span>
           </a-menu-item>
@@ -48,7 +53,7 @@ import { ref } from 'vue';
 import { MenuProps } from 'ant-design-vue';
 
 import { navbarItems } from '../../navItems/_nav';
-import { useRouter } from 'vue-router';
+import { NavigationFailureType, isNavigationFailure, useRouter } from 'vue-router';
 
 import {
   UserOutlined,
@@ -57,6 +62,7 @@ import {
   SearchOutlined,
   QuestionCircleOutlined
 } from '@ant-design/icons-vue';
+import router from '@/router';
 
 export default defineComponent({
   name: 'navbar',
@@ -84,6 +90,9 @@ export default defineComponent({
   methods: {
     async logout() {
       await this.authStore.logout();
+    },
+    async redirect(name: string) {
+      router.push({ name: name });
     }
   }
 });

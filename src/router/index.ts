@@ -49,7 +49,7 @@ const routes = [
         component: Users,
         beforeEnter: checkPermission('access', 'users'),
         meta: { public: false }
-      },
+      }
 
       // {
       //   path: "/devices",
@@ -73,12 +73,6 @@ const routes = [
       //   component: Protocols,
       //   beforeEnter: checkPermission("access", "protocols"),
       //   meta: { public: false },
-      {
-        path: '/:notFound',
-        name: 'notFound',
-        component: Page404,
-        meta: { public: true }
-      }
     ]
   },
   {
