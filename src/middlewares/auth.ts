@@ -19,7 +19,7 @@ const isAuthenticated = async () => {
         } as any;
         return config;
       });
-      store.getMe();
+      await store.getMe();
       return true;
     } catch (error) {
       console.log(error);

@@ -15,7 +15,7 @@
 
     <create-user-modal v-if="showCreateModal" @createUser="createUser" @closeModal="closeModal" />
   </v-container> -->
-  <div style="padding-top: 20px">Olá</div>
+  <div>Olá</div>
 </template>
 
 <script lang="ts">

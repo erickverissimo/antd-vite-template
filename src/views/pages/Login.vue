@@ -1,36 +1,31 @@
 <template>
   <a-card class="center" title="Login">
     <a-form
+      layout="vertical"
       :model="formState"
       name="basic"
-      :label-col="{ span: 8 }"
-      :wrapper-col="{ span: 16 }"
       autocomplete="off"
       @finish="onSubmit"
       @finishFailed="onFinishFailed"
     >
       <a-form-item
-        label="Username"
+        label="Usuário"
         name="username"
-        :rules="[{ required: true, message: 'Please input your username!' }]"
+        :rules="[{ required: true, message: 'Insira seu usuário!' }]"
       >
         <a-input v-model:value="formState.username" />
       </a-form-item>
 
       <a-form-item
-        label="Password"
+        label="Senha"
         name="password"
-        :rules="[{ required: true, message: 'Please input your password!' }]"
+        :rules="[{ required: true, message: 'Por favor, coloque sua senha!' }]"
       >
         <a-input-password v-model:value="formState.password" />
       </a-form-item>
 
-      <a-form-item name="remember" :wrapper-col="{ offset: 8, span: 16 }">
-        <a-checkbox v-model:checked="formState.remember">Remember me</a-checkbox>
-      </a-form-item>
-
-      <a-form-item :wrapper-col="{ offset: 8, span: 16 }">
-        <a-button type="primary" html-type="submit">Submit</a-button>
+      <a-form-item :wrapper-col="{ offset: 10 }">
+        <a-button type="primary" html-type="submit">Entrar</a-button>
       </a-form-item>
     </a-form>
   </a-card>
@@ -49,13 +44,11 @@ export default defineComponent({
     interface FormState {
       username: string;
       password: string;
-      remember: boolean;
     }
 
     const formState = reactive<FormState>({
       username: '',
-      password: '',
-      remember: true
+      password: ''
     });
 
     const onFinishFailed = (errorInfo: any) => {
@@ -82,14 +75,8 @@ export default defineComponent({
 
       await this.authStore.login(data).then(() => {
         // Mudar para quando as roles do sistema forem cadastradas
-        // this.$router.push(getInitialRoute(this.currentUser.user));
-        if (this.currentUser.user) {
-          this.$router.push('users');
-        }
+        this.$router.push(getInitialRoute(this.currentUser.user));
       });
-    },
-    required(v: any) {
-      return !!v || 'Field is required';
     }
   }
 });
@@ -100,6 +87,11 @@ export default defineComponent({
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100%;
+  max-width: 400px;
 }
 </style>

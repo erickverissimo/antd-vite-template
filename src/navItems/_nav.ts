@@ -1,37 +1,19 @@
-export default [
+import { MailOutlined, AppstoreOutlined } from '@ant-design/icons-vue';
+import { h } from 'vue';
+
+export const navbarItems = [
   {
-    name: "Cargos",
-    to: "/roles",
-    resource: "roles",
-    icon: "mdi-book-cog",
-    action: "access",
+    key: '/users',
+    icon: () => h(MailOutlined),
+    label: h('a', { href: '/users' }, 'Cargos'),
+    title: 'Usuários',
+    path: '/users'
   },
   {
-    name: "Usuários",
-    to: "/users",
-    icon: "mdi-account-multiple",
-    resource: "users",
-    action: "access",
-  },
-  {
-    name: "Dispositivos",
-    to: "/devices",
-    icon: "mdi-image-filter-center-focus",
-    resource: "devices",
-    action: "access",
-  },
-  {
-    name: "Sites",
-    to: "/sites",
-    icon: "mdi-sitemap",
-    resource: "sites",
-    action: "access",
-  },
-  {
-    name: "Protocolos",
-    to: "/protocols",
-    icon: "mdi-group",
-    resource: "protocols",
-    action: "access",
-  },
+    key: '/roles',
+    icon: () => h(AppstoreOutlined),
+    label: h('a', { href: '/roles' }, 'Cargos'),
+    title: 'Cargos',
+    path: '/roles'
+  }
 ];

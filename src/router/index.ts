@@ -14,7 +14,7 @@ const Page404 = () => import('@/views/pages/Page404.vue');
 
 // Default Components:
 const Users = () => import('@/views/Users.vue');
-// const Roles = () => import('@/views/Roles.vue');
+const Roles = () => import('@/views/Roles.vue');
 // const Devices = () => import('@/views/Devices.vue');
 // const Sites = () => import('@/views/Sites.vue');
 // const Protocols = () => import('@/views/Protocols.vue');
@@ -36,14 +36,13 @@ const routes = [
     redirect: '/login',
     component: DefaultLayout,
     children: [
-      // {
-      //   path: '/roles',
-      //   name: 'Roles',
-      //   component: Roles,
-      //   beforeEnter: checkPermission('access', 'roles'),
-      //   meta: { public: false }
-      // },
-
+      {
+        path: '/roles',
+        name: 'Roles',
+        component: Roles,
+        beforeEnter: checkPermission('access', 'roles'),
+        meta: { public: false }
+      },
       {
         path: '/users',
         name: 'Users',
