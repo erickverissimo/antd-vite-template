@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { mapState } from 'pinia';
+import { mapState, mapStores } from 'pinia';
 import { useAuthStore } from '@/stores';
 
 import Navbar from '../../components/layout/Navbar.vue';
@@ -20,6 +20,7 @@ export default defineComponent({
     Navbar
   },
   computed: {
+    ...mapStores(useAuthStore),
     ...mapState(useAuthStore, ['myUser'])
   },
   methods: {
@@ -29,6 +30,9 @@ export default defineComponent({
       }
       return false;
     }
+  },
+  beforeMount() {
+    this.authStore.getMe();
   }
 });
 </script>

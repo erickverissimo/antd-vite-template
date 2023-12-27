@@ -1,22 +1,5 @@
 <template>
-  <!-- <v-container fluid>
-    <users-list
-      v-if="users && users.result && !createUserForm"
-      :users="users"
-      :filter="filter"
-      @callCreate="callCreate"
-      @callUpdate="callUpdate"
-      @callDelete="callDelete"
-      @callUpdatePassword="callUpdatePassword"
-      @onPageChange="onChangePage"
-    />
-
-    <create-user-form v-if="createUserForm" />
-
-    <create-user-modal v-if="showCreateModal" @createUser="createUser" @closeModal="closeModal" />
-  </v-container> -->
-
-  <div>Olá</div>
+  <h2>Usuários</h2>
 </template>
 
 <script lang="ts">
@@ -24,17 +7,8 @@ import { mapStores, mapState } from 'pinia';
 import { useUserStore } from '../stores';
 import { defineComponent } from 'vue';
 
-// import UsersList from '@/components/users-components/UsersList.vue';
-// import CreateUserModal from '@/components/users-components/CreateUserModal.vue';
-// import CreateUserForm from '@/components/users-components/CreateUserForm.vue';
-
 export default defineComponent({
   name: 'users',
-  // components: {
-  //   UsersList,
-  //   CreateUserModal,
-  //   CreateUserForm
-  // },
   data() {
     return {
       showCreateModal: false,

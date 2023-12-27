@@ -9,7 +9,6 @@ const PublicLayout = () => import('@/layouts/public/Public.vue');
 
 // Public components:
 const Login = () => import('@/views/pages/Login.vue');
-// // const Register = () => import("@/views/pages/Register.vue");
 const Page404 = () => import('@/views/pages/Page404.vue');
 
 // Default Components:
@@ -24,7 +23,7 @@ function checkPermission(action: string, resource: string) {
     if (hasPermission(action, resource)) {
       next();
     } else {
-      next('/404');
+      router.push('/404');
     }
   };
 }
@@ -87,17 +86,10 @@ const routes = [
         component: Login,
         meta: { public: true }
       },
-      // // {
-      // //   path: "/register",
-      // //   name: "Register",
-      // //   component: Register,
-      // //   meta: { public: true },
-      // // },
       {
         path: '/:notFound',
         name: 'notFound',
-        component: Page404,
-        meta: { public: true }
+        component: Page404
       }
     ]
   }

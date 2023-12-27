@@ -1,40 +1,39 @@
 import { useAuthStore } from '../stores';
 
 export function hasPermission(action: string, resource: string) {
-  // const store = useAuthStore();
-  // if (!action && !resource) {
-  //   return true;
-  // }
-  // const currentUser = store.currentUser;
-  // const acceptedPermission = currentUser.permissions.some(
-  //   (permission: any) =>
-  //     permission.action.toLowerCase() === action.toLowerCase() &&
-  //     permission.resource.toLowerCase() === resource.toLowerCase()
-  // );
+  const store = useAuthStore();
+  if (!action && !resource) {
+    return true;
+  }
+  const currentUser = store.currentUser;
 
-  // return acceptedPermission;
-  return true;
+  const acceptedPermission = currentUser.permissions.some(
+    (permission: any) =>
+      permission.action.toLowerCase() === action.toLowerCase() &&
+      permission.resource.toLowerCase() === resource.toLowerCase()
+  );
+
+  return acceptedPermission;
 }
 
 export function hasPermissions(actions: string[], resource: string) {
-  // const store = useAuthStore();
-  // if (!actions && !resource) {
-  //   return true;
-  // }
+  const store = useAuthStore();
+  if (!actions && !resource) {
+    return true;
+  }
 
-  // const currentUser = store.currentUser;
+  const currentUser = store.currentUser;
 
-  // const acceptedPermission = currentUser.permissions.some((permission: any) => {
-  //   if (permission.resource.toLowerCase() === resource.toLowerCase()) {
-  //     return actions
-  //       .map((action) => action.toLowerCase())
-  //       .includes(permission.action.toLowerCase());
-  //   }
-  //   return false;
-  // });
+  const acceptedPermission = currentUser.permissions.some((permission: any) => {
+    if (permission.resource.toLowerCase() === resource.toLowerCase()) {
+      return actions
+        .map((action) => action.toLowerCase())
+        .includes(permission.action.toLowerCase());
+    }
+    return false;
+  });
 
-  // return acceptedPermission;
-  return true;
+  return acceptedPermission;
 }
 
 export const permissionPlugin = {

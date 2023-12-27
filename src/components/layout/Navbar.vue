@@ -30,10 +30,10 @@
               <span>{{ myUser.name }}</span>
             </span>
           </template>
-          <a-menu-item key="details" @click="redirect('Details')">
+          <!-- <a-menu-item key="details" @click="redirect('Roles')">
             <UserOutlined />
             <span>Detalhes</span>
-          </a-menu-item>
+          </a-menu-item> -->
           <a-menu-item key="logout" @click="logout">
             <LogoutOutlined />
             <span>Sair</span>
@@ -53,7 +53,7 @@ import { ref } from 'vue';
 import { MenuProps } from 'ant-design-vue';
 
 import { navbarItems } from '../../navItems/_nav';
-import { NavigationFailureType, isNavigationFailure, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 import {
   UserOutlined,

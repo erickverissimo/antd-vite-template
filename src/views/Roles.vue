@@ -1,5 +1,5 @@
 <template>
-  <div>Olá to em cargos</div>
+  <h2>Cargos</h2>
 </template>
 
 <script lang="ts">
@@ -7,17 +7,8 @@ import { mapStores, mapState } from 'pinia';
 import { useUserStore } from '../stores';
 import { defineComponent } from 'vue';
 
-// import UsersList from '@/components/users-components/UsersList.vue';
-// import CreateUserModal from '@/components/users-components/CreateUserModal.vue';
-// import CreateUserForm from '@/components/users-components/CreateUserForm.vue';
-
 export default defineComponent({
   name: 'roles',
-  // components: {
-  //   UsersList,
-  //   CreateUserModal,
-  //   CreateUserForm
-  // },
   data() {
     return {
       showCreateModal: false,

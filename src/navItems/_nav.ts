@@ -7,13 +7,17 @@ export const navbarItems = [
     icon: () => h(UsergroupAddOutlined),
     label: h('a', { href: '/users' }, 'Usuários'),
     title: 'Usuários',
-    path: '/users'
+    path: '/users',
+    resource: 'users',
+    action: 'access'
   },
   {
     key: '/roles',
     icon: () => h(AppstoreOutlined),
     label: h('a', { href: '/roles' }, 'Cargos'),
     title: 'Cargos',
-    path: '/roles'
+    path: '/roles',
+    resource: 'roles',
+    action: 'access'
   }
 ];

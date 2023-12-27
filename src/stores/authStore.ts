@@ -53,9 +53,14 @@ export const useAuthStore = defineStore('auth', {
       await authService.logout();
     },
     async getMe() {
-      await authService.getMe().then((response) => {
-        this.myUser = response;
-      });
+      await authService
+        .getMe()
+        .then((response) => {
+          this.myUser = response;
+        })
+        .catch((error) => {
+          getToastStatus(TYPES_OF_TOAST.ERROR, error);
+        });
     }
   },
 
